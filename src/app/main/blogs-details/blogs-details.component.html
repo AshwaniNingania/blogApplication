@@ -1,0 +1,93 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-lg-2">
+        <button class="panel-title btn-success" style="cursor: pointer"
+                (click)="filterFavBlogs()">{{favBlog ? 'All Blogs' : 'Favourites Blogs'}}</button>
+      </div>
+      <div class="col-md-4">
+        Search by name
+        <input type="text" class="form-control" [(ngModel)]='titleFilter'
+               placeholder="Search by name..">
+      </div>
+      <div class="col-md-4 col-lg-offset-1">
+        Filter by category
+        <select class="form-control list-selector required"
+                [(ngModel)]='categoryFilter'>
+          <option [ngValue]="null">None</option>
+          <option value="technical">Technical</option>
+          <option value="Medical">Medical</option>
+          <option value="social">Social</option>
+          <option value="sports">Sports</option>
+          <option value="Management">Management</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body" *ngIf="!favBlog" style="height:350px; overflow:auto">
+    <div class="panel panel-default" *ngFor="let blog of filteredBlogs">
+      <div class="panel-heading">
+          <div class="media">
+            <div class="media-left">
+            </div>
+            <div class="media-body">
+              <h3 class="media-heading" style="margin-bottom: 5px">
+                  <span class="hover"><b>{{blog.title}}</b></span>
+
+                <i class="glyphicon glyphicon-trash  hover pull-right" (click)='deleteBlog(blog.id)'
+                   style="margin-left: 8px; color: red; cursor: pointer"  *ngIf="user.username == blog.author"></i>
+
+                <i class="glyphicon glyphicon-edit hover pull-right" (click)='updateBlog(blog)'
+                   style="color: #3B5794; cursor: pointer" *ngIf="user.username == blog.author"></i>
+
+                <i class="fa fa-thumbs-o-up hover pull-right" *ngIf="!checkFav(blog.id)" (click)="addFav(blog.id)"
+                   style="margin-right: 15px; cursor: pointer"  ></i>
+
+                <i class="fa fa-thumbs-up hover pull-right" *ngIf="checkFav(blog.id)" (click)="addFav(blog.id)"
+                   style="margin-right: 15px; cursor: pointer; color: green"  ></i>
+              </h3>
+                <!--<app-start class="pull-right" [rating]='blog.starRating' style="margin: 7px 0 3px 7px"></app-start>-->
+
+                  <p>{{blog.description}}</p>
+
+              <b><p class="pull-left">{{blog.createdDate}}</p>
+              <p class="pull-right" style="margin-left: 10px">{{blog.category}} By-{{blog.author}}</p></b>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body" *ngIf="favBlog" style="height:350px; overflow:auto">
+    <div class="panel panel-default" *ngFor="let blog of filteredBlogs">
+      <div class="panel-heading" *ngIf="checkFav(blog.id)">
+        <div class="media">
+          <div class="media-left">
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading" style="margin-bottom: 5px">
+              <span class="hover"><b>{{blog.title}}</b></span>
+
+              <i class="glyphicon glyphicon-trash  hover pull-right" (click)='deleteBlog(blog.id)'
+                 style="margin-left: 8px; color: red; cursor: pointer"  *ngIf="user.username == blog.author"></i>
+
+              <i class="glyphicon glyphicon-edit hover pull-right" (click)='updateBlog(blog)'
+                 style="color: #3B5794; cursor: pointer" *ngIf="user.username == blog.author"></i>
+
+              <i class="fa fa-thumbs-o-up hover pull-right" *ngIf="!checkFav(blog.id)" (click)="addFav(blog.id)"
+                 style="margin-right: 15px; cursor: pointer"  ></i>
+
+              <i class="fa fa-thumbs-up hover pull-right" *ngIf="checkFav(blog.id)" (click)="addFav(blog.id)"
+                 style="margin-right: 15px; cursor: pointer; color: green"  ></i>
+            </h3>
+            <!--<app-start class="pull-right" [rating]='blog.starRating' style="margin: 7px 0 3px 7px"></app-start>-->
+
+            <p>{{blog.description}}</p>
+
+            <b><p class="pull-left">{{blog.createdDate}}</p>
+              <p class="pull-right" style="margin-left: 10px">{{blog.category}} By-{{blog.author}}</p></b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

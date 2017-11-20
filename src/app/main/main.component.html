@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-7" style="padding: 0 5% 0 5%">
+    <app-blogs-details [filteredBlogs] = "allBlogs" [blogs] = "allBlogs"
+                       [user]="getUser()"  (userEmit)="editUser($event)"
+                       (updatedBlog)="updateblog($event)"  (deleteIdClicked)="deleteBlog($event)">
+
+    </app-blogs-details>
+  </div>
+
+  <div class="col-lg-5" style="padding: 0 5% 0 0">
+    <app-new-blog  [data]="updatedData" [user]="getUser()" (newObject)="addBlog($event)"></app-new-blog>
+  </div>
+</div>

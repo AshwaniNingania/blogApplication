@@ -1,0 +1,57 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <label class="panel-title" style="font-size: larger; font-weight: bolder">
+      Add New Widget
+    </label>
+    <span class="pull-right" style="font-size: larger;font-weight: bolder">Hi.. {{user.username}}</span>
+  </div>
+  <div class="panel-body">
+
+      <form class="form-group" action="javascript:void(0)" >
+        <div class="row">
+          <div class="col-lg-12">
+            New blog title <span style="color: red; ">*</span>
+            <input placeholder="Title" class="form-control" maxlength="30" #title  type="text" [value]="data.title" required>
+          </div>
+
+          <div class="col-lg-6">
+            Select category <span style="color: red; ">*</span>
+            <select class="form-control" #category [value]="data.category" required >
+              <option value="Technical">Technical</option>
+              <option value="Medical">Medical</option>
+              <option value="Social">Social</option>
+              <option value="Sports">Sports</option>
+              <option value="Management">Management</option>
+            </select>
+          </div>
+          <div class="col-lg-6">
+          <!--  Select rating
+            <select class="form-control" #starRating [value]="data.starRating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>-->
+          </div>
+
+          <div class="col-lg-12">
+            Description <span style="color: red; ">*</span>
+            <textarea placeholder="Description..."  class="form-control"   #description [value]="data.description" required></textarea>
+          </div>
+
+          <div class="col-lg-12 col-lg-offset-4">
+            <button class="btn btn-success" *ngIf="data.id" type="submit"
+                    (click)="newBlog(title.value, category.value, description.value)">
+              <i class="glyphicon glyphicon-pencil" style="margin-right: 5px"></i>Update Blog
+            </button>
+            <button class="btn btn-success" *ngIf="!data.id" type="submit"
+                    (click)="newBlog(title.value, category.value, description.value)">
+              <i class="glyphicon glyphicon-plus" style="margin-right: 5px"></i>Add Blog
+            </button>
+          </div>
+        </div>
+      </form>
+
+  </div>
+</div>

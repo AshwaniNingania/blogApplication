@@ -1,0 +1,18 @@
+a:hover {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button {
+  margin: 10px 10px 10px 10px;
+}
+

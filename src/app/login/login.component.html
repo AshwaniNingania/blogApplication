@@ -1,0 +1,30 @@
+
+<div class="container row">
+  <div class="col-lg-6 col-lg-offset-1">
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <form class="form-signin" >
+      <br>
+      <input type="text" id="inputEmail" #username maxlength="20" class="form-control" placeholder="User name" required autofocus>
+      <input type="password" id="inputPassword"  #password maxlength="10" class="form-control" placeholder="Password" required>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="login(username.value,password.value)" type="submit">Sign in</button>
+    </form>
+  </div>
+  </div>
+  <div class="col-lg-5">
+  <div class="card card-container">
+    <form class="form-signup">
+      <h3>Create new Account</h3>
+      <br>
+      <input type="text"  id="name" maxlength="20"  #newuser class="form-control"
+             placeholder="User name should be unique" required >
+      <input type="password" id="pass" maxlength="10" #pass class="form-control" placeholder="Password" required>
+      <input type="password" is="confpass" maxlength="10" #confirmpass class="form-control" placeholder="Confirm Password" required>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block btn-signin"
+              (click)="signup(newuser.value,pass.value,confirmpass.value)" type="submit">Sign Up</button>
+    </form>
+  </div>
+  </div>
+</div>

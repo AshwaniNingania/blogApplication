@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Demo",
+      "category": "Medical",
+      "createdDate": "Sun Nov 12 2017 14:08:59 GMT+0530 (India Standard Time)",
+      "description": "Checking..",
+      "author": "Ashwani"
+    },
+    {
+      "id": 2,
+      "title": "User Blog",
+      "category": "Social",
+      "createdDate": "Sat Nov 11 2017 10:15:02 GMT+0530 (India Standard Time)",
+      "description": "just enjoyig",
+      "author": "user"
+    },
+    {
+      "id": 3,
+      "title": "Cute Girl",
+      "category": "Social",
+      "createdDate": "Sun Nov 12 2017 12:12:08 GMT+0530 (India Standard Time)",
+      "description": "This is not true.",
+      "author": "Asha"
+    }
+  ],
+  "users": [
+    {
+      "username": "Ashwani",
+      "password": "12345",
+      "favourites": [
+        1,
+        2,
+        4
+      ],
+      "id": 1
+    },
+    {
+      "username": "user",
+      "password": "pass",
+      "favourites": [
+        2
+      ],
+      "id": 2
+    }
+  ]
+}
